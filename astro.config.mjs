@@ -8,9 +8,9 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.google(),
-      name: 'Playfair Display',
+      name: 'Bodoni Moda',
       cssVariable: '--font-display',
-      weights: [400, 700, 900],
+      weights: [400, 500, 700, 900],
       styles: ['normal', 'italic'],
       fallbacks: ['Georgia', 'serif'],
     },
@@ -21,14 +21,6 @@ export default defineConfig({
       weights: [400, 500, 600, 700],
       styles: ['normal'],
       fallbacks: ['system-ui', 'sans-serif'],
-    },
-    {
-      provider: fontProviders.google(),
-      name: 'DM Mono',
-      cssVariable: '--font-mono',
-      weights: [400],
-      styles: ['normal'],
-      fallbacks: ['monospace'],
     },
   ],
 });

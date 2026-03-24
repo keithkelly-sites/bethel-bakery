@@ -1,17 +1,35 @@
 ---
 /*
-  Design Concept: "Since 1955"
-  Inspired by editorial food photography and cinematic hero layouts.
-  Signature moment: "1955" at massive scale behind the hero image.
+  DESIGN CONCEPT: "Layered like their cakes"
+
+  Inspired by Bernice Bakery's Awwwards-winning playful brand identity
+  and the editorial typography of Magnolia Bakery (Gatefold + GT Alpina,
+  documented on Fonts In Use). Bethel Bakery's identity IS layers —
+  layers of buttercream, layers of generations, layers of 70 years in
+  the same community. The founding year "1955" becomes monumental
+  typography, the foundation everything is built on. Bodoni Moda's
+  ultra-high-contrast hairlines at display sizes create drama that
+  matches the craft and precision of their decorating work. Warm cream
+  and dusty rose breathe through the navy, mirroring the color palette
+  found in their own cake photography.
+
+  Reference sites studied: Bernice Bakery (Awwwards HM), Fonts In Use
+  bakery typography studies, Rick Sebak's documentary aesthetic for
+  Pittsburgh heritage businesses.
 */
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import weddingHero from '../assets/images/wedding-homepg.webp';
-import anniversary from '../assets/images/1961-6th-anniversary-ma-and-dad-e1713796097594.jpg';
-import storefront from '../assets/images/bethel-park-store-front-2017-768x586-1.jpg';
-import venueWeddingCake from '../assets/images/img_0250-1024x683-panorama-db09a1dadcb55540fddae58d40a06f5d-ezn8squ12l9x.jpg';
-import cookieTrays from '../assets/images/cookies.webp';
-import ladyLocks from '../assets/images/bethel-bakery-wedding-pittsburgh-cookie-table-819x1024.webp';
+import threeGenerationsImg from '../assets/images/three-generations.jpg';
+import vintageFoundersImg from '../assets/images/vintage-founders.jpg';
+import weddingCakeFlowersImg from '../assets/images/wedding-cake-flowers.jpg';
+import cookieTableImg from '../assets/images/cookie-table.webp';
+import goldCupcakeImg from '../assets/images/gold-cupcake.jpg';
+import cakeLayersImg from '../assets/images/cake-layers.webp';
+import pinkGoldTowerImg from '../assets/images/pink-gold-tower.jpg';
+import monogramCookiesImg from '../assets/images/monogram-cookies.jpg';
+import cupcakeTowerImg from '../assets/images/cupcake-tower.webp';
+import bethelParkStoreImg from '../assets/images/bethel-park-store.jpg';
+import northStrabaneStoreImg from '../assets/images/north-strabane-store.jpg';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -20,8 +38,9 @@ const jsonLd = {
   "url": "https://bethel-bakery.keithkelly.dev",
   "telephone": "412-835-6658",
   "email": "info@bethelbakery.com",
-  "description": "Family-owned bakery since 1955, serving the South Hills of Pittsburgh with scratch-baked goods of exceptional quality.",
   "foundingDate": "1955",
+  "image": "https://bethel-bakery.keithkelly.dev/images/og-image.jpg",
+  "description": "Three generations of the Walsh family have been baking life sweeter since 1955. Wedding cakes, custom cakes, cookies, cupcakes, and more.",
   "address": [
     {
       "@type": "PostalAddress",
@@ -41,721 +60,667 @@ const jsonLd = {
     }
   ],
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "07:00", "closes": "17:00" }
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "07:00",
+      "closes": "17:00"
+    }
   ],
   "sameAs": [
     "https://www.facebook.com/BethelBakery/",
     "https://www.instagram.com/bethelbakery/",
-    "https://www.yelp.com/biz/bethel-bakery-bethel-park"
+    "https://x.com/BethelBakery"
   ]
 };
 ---
+<Layout title="Bethel Bakery — Family-Owned Since 1955 | Bethel Park &amp; North Strabane, PA" description="Three generations of the Walsh family have been baking life sweeter since 1955. Wedding cakes, custom cakes, cookies, cupcakes, and more. Two locations in Pittsburgh's South Hills." darkHeader={true} canonicalPath="/">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
 
-<Layout title="Bethel Bakery — The Cake Place Since 1955">
-
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg-year" aria-hidden="true">1955</div>
-    <div class="hero-image-wrap">
-      <Image
-        src={weddingHero}
-        alt="A couple sharing wedding cake from Bethel Bakery"
-        class="hero-image"
-        width={800}
-        height={800}
-        layout="constrained"
-        loading="eager"
-        fetchpriority="high"
-      />
-    </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Family-owned since 1955</p>
-      <h1 class="hero-title">The Cake<br />Place</h1>
-      <p class="hero-sub">Three generations of scratch-baked goods in Pittsburgh's South Hills.</p>
+<section class="hero" id="hero">
+  <div class="hero-bg-year" aria-hidden="true">1955</div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="hero-since">Since</span>
+      <h1>1955</h1>
+      <div class="hero-divider" aria-hidden="true"></div>
+      <p class="hero-tagline">Three Generations of<br />Baking Life Sweeter</p>
       <div class="hero-actions">
-        <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Order Online</a>
-        <a href="/about" class="btn btn--outline">Our Story</a>
+        <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Order Online</a>
+        <a href="/weddings" class="btn btn--rose">Plan Your Wedding</a>
       </div>
     </div>
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
+    <div class="hero-image">
+      <Image src={threeGenerationsImg} alt="Stephen Walsh, Morris Walsh, and John Walsh — three generations of Bethel Bakery bakers standing together outside the bakery" width={500} height={630} loading="eager" />
     </div>
-  </section>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
 
-  <!-- INTRO STATEMENT -->
-  <section class="intro">
-    <div class="container">
-      <div class="intro-grid reveal">
-        <div class="intro-text">
-          <p class="section-label">Our Mission</p>
-          <h2>Baked goods of exceptional quality that bring a special joy to life.</h2>
-          <hr class="divider" />
-          <p>What started in three garages with $2,500 and a dream is now a Pittsburgh institution. Morris "Moe" Walsh, orphaned at ten, learned to bake and never stopped. Today, his grandchildren Stephen and Kate carry that same determination into every loaf, every cake, every cookie tray.</p>
-        </div>
-        <div class="intro-image-stack">
-          <Image
-            src={anniversary}
-            alt="Morris and Anna Walsh at Bethel Bakery's 6th anniversary, 1961"
-            class="intro-img intro-img--back"
-            width={400}
-            height={560}
-            layout="constrained"
-            loading="lazy"
-          />
-          <Image
-            src={storefront}
-            alt="Bethel Bakery storefront in Bethel Park"
-            class="intro-img intro-img--front"
-            width={500}
-            height={380}
-            layout="constrained"
-            loading="lazy"
-          />
-        </div>
+<section class="origin">
+  <div class="container">
+    <div class="origin-grid">
+      <div class="origin-photo reveal">
+        <Image src={vintageFoundersImg} alt="Morris and Anna Walsh at Bethel Bakery, 1961" width={400} height={560} loading="lazy" />
+        <span class="origin-year" aria-hidden="true">1955</span>
+      </div>
+      <div class="origin-text reveal reveal-delay-2">
+        <h2>It started in<br />three garages</h2>
+        <p>Morris "Moe" Walsh was orphaned at ten. After serving in the Navy, he put $2,500 together with his fiancee Anna and opened a bakery in three attached garages on South Park Road. Parking for two cars.</p>
+        <p>He started every day at 2 a.m. Seventy years later, the bakery is still on Brightwood Road, still scratch-baking, and still run by the Walsh family. Stephen and Kate Walsh carry on what Morris and Anna started.</p>
+        <a href="/about" class="text-link">Read our full story &rarr;</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- WEDDING FEATURE -->
-  <section class="wedding-feature">
-    <div class="wedding-bg" aria-hidden="true"></div>
-    <div class="container--wide">
-      <div class="wedding-grid reveal">
-        <div class="wedding-image-col">
-          <Image
-            src={venueWeddingCake}
-            alt="An elegant wedding cake by Bethel Bakery displayed at a reception venue"
-            class="wedding-img"
-            width={800}
-            height={533}
-            layout="constrained"
-            loading="lazy"
-          />
-        </div>
-        <div class="wedding-text-col">
-          <p class="section-label">Weddings</p>
-          <h2>Your celebration, our craft.</h2>
-          <p>During your at-home consultation, our team walks you through every step. Together, we create a cake that matches your taste, style, and budget. Custom flavors, custom colors, custom everything.</p>
-          <div class="wedding-details">
-            <div class="wedding-detail">
-              <span class="wedding-detail-label">Batters</span>
-              <span>Almond, Chocolate, Lemon, Orange, Red Velvet, Marble, White, Yellow</span>
-            </div>
-            <div class="wedding-detail">
-              <span class="wedding-detail-label">Fillings</span>
-              <span>Bavarian Cream, Cannoli, Chocolate Mousse, Lemon, Raspberry, Strawberry</span>
-            </div>
-          </div>
-          <a href="/weddings" class="btn btn--gold">Plan Your Wedding Cake</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="wedding-showcase">
+  <div class="wedding-showcase-image">
+    <Image src={weddingCakeFlowersImg} alt="A two-tier white wedding cake adorned with fresh flowers by Bethel Bakery" width={683} height={1024} loading="lazy" />
+  </div>
+  <div class="wedding-showcase-overlay" aria-hidden="true"></div>
+  <div class="wedding-showcase-content reveal">
+    <span class="section-label">Weddings</span>
+    <h2>Your celebration,<br /><em>our craft</em></h2>
+    <p>Custom wedding cakes, cupcake towers, cookie tables, and monogram cookies. Every detail made from scratch, planned through personal consultation.</p>
+    <a href="/weddings" class="btn btn--outline">Explore Wedding Cakes</a>
+  </div>
+</section>
 
-  <!-- COOKIE TABLE -->
-  <section class="cookie-section">
-    <div class="container">
-      <div class="cookie-grid reveal">
-        <div class="cookie-text">
-          <p class="section-label">A Pittsburgh Tradition</p>
-          <h2>The Cookie Table</h2>
-          <p>No Pittsburgh wedding is complete without one. We bake the traditional favorites your family expects: lady locks, thumbprints, buckeyes, kolachi, pizzelles, and dozens more. Trays start with a selection of our signature cookies, and we'll customize from there.</p>
-          <a href="/weddings" class="btn btn--outline">See Cookie Options</a>
-        </div>
-        <div class="cookie-images">
-          <Image
-            src={cookieTrays}
-            alt="Bethel Bakery cookie trays displayed on gold serving stands"
-            class="cookie-img cookie-img--main"
-            width={500}
-            height={500}
-            layout="constrained"
-            loading="lazy"
-          />
-          <Image
-            src={ladyLocks}
-            alt="Lady locks and chocolate-dipped cookies from Bethel Bakery"
-            class="cookie-img cookie-img--accent"
-            width={400}
-            height={500}
-            layout="constrained"
-            loading="lazy"
-          />
-        </div>
+<section class="pittsburgh">
+  <div class="container">
+    <div class="pittsburgh-grid">
+      <div class="pittsburgh-text reveal">
+        <span class="section-label">Pittsburgh Pride</span>
+        <h2>Part of Pittsburgh<br />since day one</h2>
+        <p>Featured in Rick Sebak's WQED documentary "What Makes Pittsburgh, Pittsburgh." Officially licensed for the Terrible Towel cookie, with proceeds going to Merakey Allegheny Valley School.</p>
+        <p>And of course, we do the cookie table. It's not a Pittsburgh wedding without one.</p>
+      </div>
+      <div class="pittsburgh-photo reveal reveal-delay-2">
+        <Image src={cookieTableImg} alt="A Pittsburgh cookie table spread with cream horns and chocolate-dipped cookies at a Bethel Bakery wedding" width={819} height={1024} loading="lazy" />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ORDERING -->
-  <section class="order-section">
-    <div class="container">
-      <div class="order-content reveal">
-        <p class="section-label">How to Order</p>
-        <h2>Two ways to get your favorites.</h2>
-        <div class="order-grid">
-          <div class="order-card">
-            <div class="order-card-number" aria-hidden="true">01</div>
-            <h3>Order Online</h3>
-            <p>Visit our online store and place your order at least 72 hours in advance. Pay at checkout. Pick up at our Bethel Park location.</p>
-            <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Shop Now</a>
-          </div>
-          <div class="order-card">
-            <div class="order-card-number" aria-hidden="true">02</div>
-            <h3>Call Us</h3>
-            <p>Speak with an Order Specialist at <a href="tel:412-835-6658">412-835-6658</a>. Place or add to your order at least 72 hours in advance. Orders accepted at the Bethel Park location only.</p>
-            <a href="tel:412-835-6658" class="btn btn--outline">Call 412-835-6658</a>
-          </div>
-        </div>
-        <p class="order-note">Walk in anytime for our daily selection of cookies, cakes, and breakfast items. First come, first served.</p>
-      </div>
+<section class="product-strip" aria-label="Product showcase">
+  <div class="strip-track">
+    <div class="strip-item">
+      <Image src={goldCupcakeImg} alt="Gold crystalized sugar cupcake" width={400} height={560} loading="lazy" />
     </div>
-  </section>
+    <div class="strip-item">
+      <Image src={cakeLayersImg} alt="Layered cake cross-section" width={400} height={267} loading="lazy" />
+    </div>
+    <div class="strip-item">
+      <Image src={pinkGoldTowerImg} alt="Pink and gold cupcake tower with cutting cake" width={400} height={560} loading="lazy" />
+    </div>
+    <div class="strip-item">
+      <Image src={monogramCookiesImg} alt="Custom monogram wedding cookies" width={400} height={400} loading="lazy" />
+    </div>
+    <div class="strip-item">
+      <Image src={cupcakeTowerImg} alt="Cupcake tower at outdoor reception" width={400} height={500} loading="lazy" />
+    </div>
+  </div>
+</section>
 
-  <!-- LOCATIONS -->
-  <section class="locations-section">
-    <div class="container--wide">
-      <div class="locations-header reveal">
-        <p class="section-label">Visit Us</p>
-        <h2>Two locations in the South Hills.</h2>
-      </div>
-      <div class="locations-grid reveal">
-        <div class="location-card">
-          <div class="location-card-label">Bethel Park</div>
-          <address>
-            5200 Brightwood Road<br />
-            Bethel Park, PA 15102
-          </address>
-          <div class="location-hours">
-            <p>Monday - Friday: 7am - 6pm</p>
-            <p>Saturday: 7am - 5pm</p>
-            <p>Sunday: Closed</p>
-          </div>
-          <p class="location-note">Online orders, phone orders, and walk-ins.</p>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=5200+Brightwood+Road+Bethel+Park+PA+15102" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Get Directions</a>
+<section class="locations-preview">
+  <div class="container">
+    <h2 class="locations-heading reveal">Two Locations in the South Hills</h2>
+    <div class="locations-grid">
+      <a href="/contact" class="location-preview-card reveal">
+        <div class="lpc-image">
+          <Image src={bethelParkStoreImg} alt="Bethel Bakery storefront in Bethel Park, Pennsylvania" width={768} height={586} loading="lazy" />
         </div>
-        <div class="location-card">
-          <div class="location-card-label">North Strabane</div>
-          <address>
-            2500 Washington Road<br />
-            North Strabane, PA 15317
-          </address>
-          <div class="location-hours">
-            <p>Monday - Friday: 8am - 6pm</p>
-            <p>Saturday: 9am - 5pm</p>
-            <p>Sunday: Closed</p>
-          </div>
-          <p class="location-note">Walk-in selection only. No phone or online orders.</p>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=2500+Washington+Road+North+Strabane+PA+15317" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Get Directions</a>
+        <div class="lpc-info">
+          <h3>Bethel Park</h3>
+          <p>5200 Brightwood Road</p>
+          <p class="lpc-hours">Mon-Fri 7a-6p &middot; Sat 7a-5p</p>
         </div>
-      </div>
+      </a>
+      <a href="/contact" class="location-preview-card reveal reveal-delay-2">
+        <div class="lpc-image">
+          <Image src={northStrabaneStoreImg} alt="Bethel Bakery storefront in North Strabane, Pennsylvania" width={800} height={600} loading="lazy" />
+        </div>
+        <div class="lpc-info">
+          <h3>North Strabane</h3>
+          <p>2500 Washington Road</p>
+          <p class="lpc-hours">Mon-Fri 8a-6p &middot; Sat 9a-5p</p>
+        </div>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
+
+<section class="home-cta">
+  <div class="container">
+    <div class="home-cta-inner reveal">
+      <p class="home-cta-label">Ready to order?</p>
+      <h2>Browse our full menu and<br />order online for pickup.</h2>
+      <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Order Online</a>
+      <p class="home-cta-phone">Or call <a href="tel:4128356658">412-835-6658</a></p>
+    </div>
+  </div>
+</section>
 
 </Layout>
 
 <style>
-  /* ===== HERO ===== */
   .hero {
     position: relative;
     min-height: 100svh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy-deep);
     overflow: hidden;
-    background: var(--navy);
+    padding: 6rem var(--gutter) 3rem;
   }
 
   .hero-bg-year {
     position: absolute;
-    font-family: var(--font-display), Georgia, serif;
-    font-weight: 900;
-    font-size: clamp(8rem, 25vw, 28rem);
-    color: oklch(0.99 0 0 / 0.04);
-    letter-spacing: -0.03em;
-    user-select: none;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: clamp(20rem, 45vw, 50rem);
+    font-weight: 900;
+    color: var(--cream);
+    opacity: 0.03;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    pointer-events: none;
     white-space: nowrap;
-    z-index: 1;
-  }
-
-  .hero-image-wrap {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 55%;
-    height: 100%;
-    z-index: 2;
-    overflow: hidden;
-  }
-
-  .hero-image-wrap :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-    filter: brightness(0.85);
+    user-select: none;
   }
 
   .hero-content {
     position: relative;
-    z-index: 3;
-    padding: var(--space-2xl) var(--gutter);
-    max-width: 600px;
-    justify-self: start;
-    color: var(--cream);
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    max-width: var(--max-width);
+    width: 100%;
   }
 
-  .hero-eyebrow {
-    font-family: var(--font-mono), monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-since {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: var(--space-md);
+    color: var(--rose);
+    margin-bottom: 0.5rem;
   }
 
-  .hero-title {
+  .hero h1 {
+    font-size: clamp(6rem, 18vw, 14rem);
+    font-weight: 900;
     color: var(--cream);
-    font-size: clamp(3rem, 7vw + 1rem, 7rem);
-    line-height: 0.95;
-    margin-bottom: var(--space-md);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
   }
 
-  .hero-sub {
-    font-size: clamp(1rem, 1.25vw, 1.25rem);
-    line-height: 1.6;
-    color: oklch(0.99 0 0 / 0.75);
-    max-width: 420px;
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--rose-deep);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-style: italic;
+    color: color-mix(in oklch, var(--cream) 70%, transparent);
+    line-height: 1.3;
     margin-bottom: var(--space-lg);
   }
 
   .hero-actions {
     display: flex;
+    gap: 1rem;
     flex-wrap: wrap;
-    gap: var(--space-sm);
   }
 
-  .hero-actions .btn--outline {
-    color: var(--cream);
-    border-color: oklch(0.99 0 0 / 0.3);
+  .hero-image {
+    display: flex;
+    justify-content: center;
   }
 
-  .hero-actions .btn--outline:hover {
-    background: var(--cream);
-    color: var(--navy);
-    border-color: var(--cream);
+  .hero-image img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px oklch(0.1 0.05 250 / 0.4);
   }
 
-  .hero-scroll-hint {
+  .hero-scroll {
     position: absolute;
-    bottom: var(--space-lg);
-    left: var(--gutter);
-    z-index: 3;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+  }
+
+  .hero-scroll span {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, var(--cream) 30%, transparent);
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--rose-deep), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.3); }
+  }
+
+  .origin {
+    padding: var(--space-2xl) 0;
+  }
+
+  .origin-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .origin-photo {
+    position: relative;
+  }
+
+  .origin-photo img {
+    width: 100%;
+    border-radius: 6px;
+    filter: sepia(0.15) saturate(0.9);
+  }
+
+  .origin-year {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 10vw, 8rem);
+    font-weight: 900;
+    color: var(--rose-deep);
+    opacity: 0.15;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .origin-text h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    color: var(--text);
+    margin-bottom: var(--space-md);
+    font-style: italic;
+  }
+
+  .origin-text p {
+    color: var(--text-mid);
+    margin-bottom: 1rem;
+    max-width: 48ch;
+    line-height: 1.75;
+  }
+
+  .text-link {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--navy);
+    margin-top: 0.5rem;
+  }
+
+  .text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .wedding-showcase {
+    position: relative;
+    min-height: 80vh;
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
-    color: oklch(0.99 0 0 / 0.4);
-    font-family: var(--font-mono), monospace;
-    font-size: 0.625rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-
-  .scroll-line {
-    width: 40px;
-    height: 1px;
-    background: oklch(0.99 0 0 / 0.3);
-    position: relative;
     overflow: hidden;
   }
 
-  .scroll-line::after {
-    content: '';
+  .wedding-showcase-image {
     position: absolute;
-    top: 0;
-    left: -100%;
+    inset: 0;
+  }
+
+  .wedding-showcase-image img {
     width: 100%;
     height: 100%;
-    background: var(--gold);
-    animation: scroll-pulse 2s ease-in-out infinite;
+    object-fit: cover;
+    object-position: center 30%;
   }
 
-  @keyframes scroll-pulse {
-    0% { left: -100%; }
-    50% { left: 0; }
-    100% { left: 100%; }
+  .wedding-showcase-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      oklch(0.15 0.05 250 / 0.9) 0%,
+      oklch(0.15 0.05 250 / 0.55) 40%,
+      oklch(0.15 0.05 250 / 0.2) 100%
+    );
+    z-index: 1;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .scroll-line::after {
-      animation: none;
-      left: 0;
-    }
+  .wedding-showcase-content {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-xl) var(--gutter);
+    max-width: var(--max-width);
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .section-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: var(--space-sm);
+  }
+
+  .wedding-showcase-content h2 {
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    color: var(--cream);
+    margin-bottom: var(--space-md);
+  }
+
+  .wedding-showcase-content h2 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .wedding-showcase-content p {
+    font-size: 1.05rem;
+    color: color-mix(in oklch, var(--cream) 70%, transparent);
+    max-width: 44ch;
+    margin-bottom: var(--space-lg);
+    line-height: 1.7;
+  }
+
+  .pittsburgh {
+    padding: var(--space-2xl) 0;
+    background: var(--cream-dark);
+  }
+
+  .pittsburgh-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .pittsburgh-text h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--text);
+    margin-bottom: var(--space-md);
+    font-style: italic;
+  }
+
+  .pittsburgh-text p {
+    color: var(--text-mid);
+    margin-bottom: 1rem;
+    max-width: 44ch;
+    line-height: 1.75;
+  }
+
+  .pittsburgh-photo img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .product-strip {
+    padding: var(--space-lg) 0;
+    overflow: hidden;
+  }
+
+  .strip-track {
+    display: flex;
+    gap: 1rem;
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .strip-track::-webkit-scrollbar { display: none; }
+
+  .strip-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .strip-item img {
+    height: clamp(200px, 30vh, 320px);
+    width: auto;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .strip-item:hover img {
+    transform: scale(1.04);
+  }
+
+  .locations-preview {
+    padding: var(--space-xl) 0 var(--space-2xl);
+  }
+
+  .locations-heading {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: var(--text);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    font-style: italic;
+  }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .location-preview-card {
+    display: block;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px color-mix(in oklch, var(--navy) 5%, transparent);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .location-preview-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px color-mix(in oklch, var(--navy) 10%, transparent);
+  }
+
+  .lpc-image {
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+  }
+
+  .lpc-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .location-preview-card:hover .lpc-image img {
+    transform: scale(1.04);
+  }
+
+  .lpc-info {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .lpc-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .lpc-info p {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+  }
+
+  .lpc-hours {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 0.4rem;
+  }
+
+  .home-cta {
+    padding: var(--space-2xl) 0;
+    background: var(--rose);
+  }
+
+  .home-cta-inner {
+    text-align: center;
+  }
+
+  .home-cta-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: var(--space-sm);
+  }
+
+  .home-cta-inner h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--text);
+    margin-bottom: var(--space-lg);
+    font-style: italic;
+  }
+
+  .home-cta-phone {
+    margin-top: var(--space-md);
+    color: var(--text-mid);
+    font-size: 0.95rem;
+  }
+
+  .home-cta-phone a {
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   @media (max-width: 768px) {
     .hero {
       min-height: auto;
-      grid-template-rows: auto auto;
+      padding: 8rem var(--gutter) 4rem;
     }
-    .hero-image-wrap {
-      position: relative;
-      width: 100%;
-      height: 50vh;
+
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-text { align-items: center; }
+
+    .hero h1 {
+      font-size: clamp(5rem, 22vw, 8rem);
+    }
+
+    .hero-divider { margin-inline: auto; }
+
+    .hero-actions { justify-content: center; }
+
+    .hero-image {
       order: -1;
     }
-    .hero-content {
-      padding: var(--space-xl) var(--gutter) var(--space-2xl);
+
+    .hero-image img {
+      max-width: 280px;
+      margin-inline: auto;
     }
+
     .hero-bg-year {
-      font-size: 6rem;
-      top: 25%;
+      font-size: clamp(10rem, 50vw, 20rem);
     }
-    .hero-scroll-hint {
-      display: none;
+
+    .hero-scroll { display: none; }
+
+    .origin-grid {
+      grid-template-columns: 1fr;
     }
-  }
 
-  /* ===== INTRO ===== */
-  .intro {
-    padding: var(--space-3xl) 0;
-    background: var(--cream);
-  }
-
-  .intro-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    align-items: center;
-  }
-
-  @media (min-width: 800px) {
-    .intro-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-2xl);
+    .origin-photo {
+      max-width: 300px;
+      margin-inline: auto;
     }
-  }
 
-  .intro-text h2 {
-    font-size: clamp(1.75rem, 3vw, 2.75rem);
-    font-style: italic;
-    color: var(--navy);
-    line-height: 1.25;
-  }
+    .origin-text { text-align: left; }
 
-  .intro-text p:last-of-type {
-    color: var(--text-light);
-    max-width: 480px;
-  }
+    .wedding-showcase { min-height: 70vh; }
 
-  .intro-image-stack {
-    position: relative;
-    height: clamp(350px, 50vw, 550px);
-  }
+    .pittsburgh-grid { grid-template-columns: 1fr; }
 
-  .intro-img--back {
-    position: absolute;
-    width: 55%;
-    height: 75%;
-    top: 0;
-    left: 0;
-    border-radius: 2px;
-    box-shadow: 0 10px 40px oklch(0 0 0 / 0.12);
-  }
+    .pittsburgh-photo { order: -1; }
 
-  .intro-img--back :global(img) {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    filter: sepia(0.15) contrast(1.05);
-  }
-
-  .intro-img--front {
-    position: absolute;
-    width: 65%;
-    height: 65%;
-    bottom: 0;
-    right: 0;
-    border-radius: 2px;
-    box-shadow: 0 10px 40px oklch(0 0 0 / 0.12);
-  }
-
-  .intro-img--front :global(img) {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* ===== WEDDING FEATURE ===== */
-  .wedding-feature {
-    position: relative;
-    padding: var(--space-3xl) 0;
-    background: var(--navy);
-    color: var(--cream);
-    overflow: hidden;
-  }
-
-  .wedding-bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--navy) 0%, oklch(0.22 0.04 250) 100%);
-    opacity: 0.5;
-  }
-
-  .wedding-grid {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    align-items: center;
-  }
-
-  @media (min-width: 800px) {
-    .wedding-grid {
-      grid-template-columns: 1.2fr 1fr;
-      gap: var(--space-2xl);
-    }
-  }
-
-  .wedding-img {
-    border-radius: 2px;
-    box-shadow: 0 20px 60px oklch(0 0 0 / 0.3);
-  }
-
-  .wedding-text-col {
-    position: relative;
-  }
-
-  .wedding-text-col .section-label {
-    color: var(--gold);
-  }
-
-  .wedding-text-col h2 {
-    color: var(--cream);
-    font-size: clamp(1.75rem, 3vw, 3rem);
-    margin-bottom: var(--space-md);
-  }
-
-  .wedding-text-col p {
-    color: oklch(0.99 0 0 / 0.8);
-    margin-bottom: var(--space-lg);
-  }
-
-  .wedding-details {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-    padding: var(--space-md);
-    background: oklch(0.99 0 0 / 0.05);
-    border-left: 3px solid var(--gold);
-  }
-
-  .wedding-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25em;
-  }
-
-  .wedding-detail-label {
-    font-family: var(--font-mono), monospace;
-    font-size: 0.6875rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  .wedding-detail span:last-child {
-    font-size: 0.9375rem;
-    color: oklch(0.99 0 0 / 0.7);
-  }
-
-  /* ===== COOKIE SECTION ===== */
-  .cookie-section {
-    padding: var(--space-3xl) 0;
-    background: var(--cream);
-  }
-
-  .cookie-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    align-items: center;
-  }
-
-  @media (min-width: 800px) {
-    .cookie-grid {
-      grid-template-columns: 1fr 1.2fr;
-      gap: var(--space-2xl);
-    }
-  }
-
-  .cookie-text h2 {
-    font-size: clamp(1.75rem, 3vw, 3rem);
-    margin-bottom: var(--space-md);
-  }
-
-  .cookie-text p {
-    color: var(--text-light);
-    margin-bottom: var(--space-lg);
-    max-width: 440px;
-  }
-
-  .cookie-images {
-    display: grid;
-    grid-template-columns: 1fr 0.8fr;
-    gap: var(--space-sm);
-    align-items: end;
-  }
-
-  .cookie-img--main,
-  .cookie-img--accent {
-    border-radius: 2px;
-    box-shadow: 0 8px 30px oklch(0 0 0 / 0.1);
-  }
-
-  /* ===== ORDER SECTION ===== */
-  .order-section {
-    padding: var(--space-3xl) 0;
-    background: var(--cream-dark);
-  }
-
-  .order-content {
-    text-align: center;
-  }
-
-  .order-content .section-label {
-    text-align: center;
-  }
-
-  .order-content h2 {
-    margin-bottom: var(--space-xl);
-  }
-
-  .order-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 600px) {
-    .order-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .order-card {
-    background: var(--white);
-    padding: var(--space-xl);
-    text-align: left;
-    position: relative;
-    border: 1px solid oklch(0 0 0 / 0.05);
-  }
-
-  .order-card-number {
-    font-family: var(--font-display), Georgia, serif;
-    font-size: 4rem;
-    font-weight: 900;
-    color: oklch(0 0 0 / 0.04);
-    line-height: 1;
-    margin-bottom: var(--space-sm);
-  }
-
-  .order-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-sm);
-  }
-
-  .order-card p {
-    color: var(--text-light);
-    font-size: 0.9375rem;
-    margin-bottom: var(--space-lg);
-  }
-
-  .order-card a[href^="tel"] {
-    color: var(--navy);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .order-note {
-    margin-top: var(--space-lg);
-    font-size: 0.9375rem;
-    color: var(--warm-gray);
-    font-style: italic;
-  }
-
-  /* ===== LOCATIONS ===== */
-  .locations-section {
-    padding: var(--space-3xl) 0;
-    background: var(--cream);
-  }
-
-  .locations-header {
-    text-align: center;
-    margin-bottom: var(--space-xl);
-  }
-
-  .locations-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 600px) {
-    .locations-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .location-card {
-    padding: var(--space-xl);
-    background: var(--white);
-    border: 1px solid oklch(0 0 0 / 0.06);
-  }
-
-  .location-card-label {
-    font-family: var(--font-mono), monospace;
-    font-size: 0.6875rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: var(--space-md);
-    font-weight: 600;
-  }
-
-  .location-card address {
-    font-style: normal;
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    color: var(--navy);
-    font-weight: 500;
-    margin-bottom: var(--space-md);
-  }
-
-  .location-hours p {
-    font-size: 0.9375rem;
-    color: var(--text-light);
-    line-height: 1.6;
-  }
-
-  .location-note {
-    font-size: 0.8125rem;
-    color: var(--warm-gray);
-    font-style: italic;
-    margin-top: var(--space-sm);
-    margin-bottom: var(--space-md);
+    .locations-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  // Parallax on hero background year
+  const bgYear = document.querySelector('.hero-bg-year');
+  if (bgYear instanceof HTMLElement) {
+    const mql = window.matchMedia('(prefers-reduced-motion: no-preference)');
+    if (mql.matches) {
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const rate = scrollY * 0.15;
+        bgYear.style.transform = `translate(-50%, calc(-50% + ${rate}px))`;
+      }, { passive: true });
+    }
+  }
+</script>
