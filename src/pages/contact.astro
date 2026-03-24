@@ -1,0 +1,447 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import mapImg from '../assets/images/map.png';
+---
+
+<Layout title="Contact Us — Bethel Bakery" description="Visit us at our Bethel Park or North Strabane locations. Call 412-835-6658 or email info@bethelbakery.com.">
+
+  <section class="contact-hero">
+    <div class="container">
+      <p class="section-label">Contact</p>
+      <h1>We'd love to hear from you.</h1>
+    </div>
+  </section>
+
+  <section class="contact-main">
+    <div class="container--wide">
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <div class="contact-block">
+            <h2>Phone</h2>
+            <a href="tel:412-835-6658" class="contact-phone">412-835-6658</a>
+            <p>Order Specialists available during store hours.</p>
+          </div>
+
+          <div class="contact-block">
+            <h2>Email</h2>
+            <a href="mailto:info@bethelbakery.com" class="contact-email">info@bethelbakery.com</a>
+          </div>
+
+          <div class="contact-block">
+            <h2>Online</h2>
+            <div class="contact-links">
+              <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer">Order Online</a>
+              <a href="https://8lml2wwqls1.typeform.com/to/Jt7P1ZKa" target="_blank" rel="noopener noreferrer">Wedding Consultation</a>
+              <a href="https://8lml2wwqls1.typeform.com/to/wl06GVaM" target="_blank" rel="noopener noreferrer">Career Application</a>
+              <a href="http://eepurl.com/iu3EvM" target="_blank" rel="noopener noreferrer">Email Newsletter</a>
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <h2>Follow Along</h2>
+            <div class="contact-social">
+              <a href="https://www.facebook.com/BethelBakery/" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href="https://www.instagram.com/bethelbakery/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.yelp.com/biz/bethel-bakery-bethel-park" target="_blank" rel="noopener noreferrer">Yelp</a>
+              <a href="https://www.google.com/maps/place/Bethel+Bakery/@40.3296982,-80.0324427,17z/" target="_blank" rel="noopener noreferrer">Google</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="locations-col">
+          <div class="location-detail">
+            <div class="location-label">Bethel Park</div>
+            <address>
+              5200 Brightwood Road<br />
+              Bethel Park, PA 15102
+            </address>
+            <div class="location-hours-grid">
+              <span>Mon - Fri</span><span>7am - 6pm</span>
+              <span>Saturday</span><span>7am - 5pm</span>
+              <span>Sunday</span><span>Closed</span>
+            </div>
+            <p class="location-services">Online orders, phone orders, walk-ins, and the Wedding Department.</p>
+            <div class="location-sub">
+              <strong>Wedding Department</strong>
+              <span>Mon - Sat: 10am - 4pm</span>
+            </div>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=5200+Brightwood+Road+Bethel+Park+PA+15102" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Get Directions</a>
+          </div>
+
+          <div class="location-detail">
+            <div class="location-label">North Strabane</div>
+            <address>
+              2500 Washington Road<br />
+              North Strabane, PA 15317
+            </address>
+            <div class="location-hours-grid">
+              <span>Mon - Fri</span><span>8am - 6pm</span>
+              <span>Saturday</span><span>9am - 5pm</span>
+              <span>Sunday</span><span>Closed</span>
+            </div>
+            <p class="location-services">Walk-in selection only. No phone or online orders at this location.</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=2500+Washington+Road+North+Strabane+PA+15317" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="container--wide">
+      <a href="https://www.google.com/maps/dir/?api=1&destination=5200+Brightwood+Road+Bethel+Park+PA+15102" target="_blank" rel="noopener noreferrer" class="map-link">
+        <Image src={mapImg} alt="Map showing Bethel Bakery location in Bethel Park, PA" width={800} height={500} layout="constrained" loading="lazy" class="map-image" />
+        <div class="map-bar">
+          <span>Bethel Bakery, Bethel Park</span>
+          <span>Get directions &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="form-content reveal">
+        <p class="section-label">Send a Message</p>
+        <h2>Contact Form</h2>
+        <p>Have a question or want to share feedback? Send us a message and we'll get back to you.</p>
+        <form method="POST" action="#" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" name="email" required autocomplete="email" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Phone <span class="optional">(optional)</span></label>
+            <input type="tel" id="contact-phone" name="phone" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="donations-section">
+    <div class="container">
+      <div class="donations-content reveal">
+        <p class="section-label">Community</p>
+        <h2>Donation Requests</h2>
+        <p>Since 1955, we've been strongly committed to giving back. We consider donating to organizations or events within a 10-mile radius of our bakeries. All requests must be submitted at least 6 weeks prior to the event date.</p>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Contact Hero */
+  .contact-hero {
+    background: var(--navy);
+    padding: var(--space-3xl) 0 var(--space-2xl);
+  }
+
+  .contact-hero .section-label {
+    color: var(--gold);
+  }
+
+  .contact-hero h1 {
+    color: var(--cream);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  /* Contact Main */
+  .contact-main {
+    padding: var(--space-3xl) 0;
+    background: var(--cream);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  @media (min-width: 800px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1.3fr;
+    }
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .contact-block h2 {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: var(--space-sm);
+  }
+
+  .contact-phone {
+    font-family: var(--font-display), Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 0.25em;
+    transition: color 0.25s;
+  }
+
+  .contact-phone:hover {
+    color: var(--gold);
+  }
+
+  .contact-block p {
+    color: var(--text-light);
+    font-size: 0.9375rem;
+  }
+
+  .contact-email {
+    font-size: 1.125rem;
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.25s;
+  }
+
+  .contact-email:hover {
+    color: var(--gold);
+  }
+
+  .contact-links,
+  .contact-social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+  }
+
+  .contact-links a,
+  .contact-social a {
+    font-size: 0.9375rem;
+    color: var(--text);
+    transition: color 0.25s;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: oklch(0 0 0 / 0.15);
+  }
+
+  .contact-links a:hover,
+  .contact-social a:hover {
+    color: var(--navy);
+    text-decoration-color: var(--navy);
+  }
+
+  /* Location Cards */
+  .locations-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .location-detail {
+    padding: var(--space-xl);
+    background: var(--white);
+    border: 1px solid oklch(0 0 0 / 0.06);
+  }
+
+  .location-label {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: var(--space-md);
+  }
+
+  .location-detail address {
+    font-style: normal;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: var(--space-md);
+  }
+
+  .location-hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3em 1em;
+    margin-bottom: var(--space-md);
+    font-size: 0.9375rem;
+  }
+
+  .location-hours-grid span:nth-child(odd) {
+    color: var(--text-light);
+  }
+
+  .location-hours-grid span:nth-child(even) {
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .location-services {
+    font-size: 0.875rem;
+    color: var(--warm-gray);
+    font-style: italic;
+    margin-bottom: var(--space-md);
+  }
+
+  .location-sub {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    padding: var(--space-sm);
+    background: var(--cream);
+    margin-bottom: var(--space-md);
+  }
+
+  .location-sub strong {
+    color: var(--text);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Donations */
+  .donations-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream-dark);
+  }
+
+  .donations-content {
+    max-width: 650px;
+  }
+
+  .donations-content h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .donations-content p {
+    color: var(--text-light);
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Contact Form */
+  .contact-form-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream-dark);
+  }
+
+  .form-content {
+    max-width: 700px;
+  }
+
+  .form-content h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .form-content > p {
+    color: var(--text-light);
+    margin-bottom: var(--space-xl);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 500px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35em;
+  }
+
+  .form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .optional {
+    font-weight: 400;
+    color: var(--warm-gray);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.7em 0.9em;
+    border: 1px solid oklch(0 0 0 / 0.15);
+    background: var(--white);
+    font-size: 1rem;
+    color: var(--text);
+    min-height: 44px;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 1px;
+    border-color: var(--gold);
+  }
+
+  /* Map */
+  .map-section {
+    padding: 0 0 var(--space-3xl);
+    background: var(--cream);
+  }
+
+  .map-link {
+    display: block;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px oklch(0 0 0 / 0.1);
+  }
+
+  .map-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .map-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--navy);
+    color: var(--cream);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+</style>

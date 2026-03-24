@@ -1,0 +1,558 @@
+---
+import { Font } from 'astro:assets';
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description = 'Bethel Bakery is a proud family-owned bakery since 1955, serving the South Hills of Pittsburgh with baked goods of exceptional quality.', ogImage } = Astro.props;
+const currentPath = Astro.url.pathname;
+const canonicalUrl = new URL(currentPath, Astro.site).href;
+const siteName = 'Bethel Bakery';
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'Our Story' },
+  { href: '/weddings', label: 'Weddings' },
+  { href: '/order', label: 'Order' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-body" preload />
+    <Font cssVariable="--font-mono" />
+    <ClientRouter />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+        <a href="/" class="logo-link" aria-label="Bethel Bakery home">
+          <img src="/favicon.png" alt="Bethel Bakery - The Cake Place" class="logo" width="60" height="60" />
+        </a>
+
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+          {navLinks.map(link => (
+            <a
+              href={link.href}
+              class:list={['nav-link', { active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
+              aria-current={currentPath === link.href ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary header-cta">
+          Order Online
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="menu-bar" aria-hidden="true"></span>
+          <span class="menu-bar" aria-hidden="true"></span>
+          <span class="menu-bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <nav aria-label="Mobile navigation">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={['mobile-nav-link', { active: currentPath === link.href }]}
+            aria-current={currentPath === link.href ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary mobile-cta">
+          Order Online
+        </a>
+      </nav>
+    </div>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner container--wide">
+        <div class="footer-brand">
+          <img src="/favicon.png" alt="Bethel Bakery" class="footer-logo" width="80" height="80" />
+          <p class="footer-tagline">Baking life sweeter since 1955.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/BethelBakery/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/bethelbakery/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.yelp.com/biz/bethel-bakery-bethel-park" target="_blank" rel="noopener noreferrer" aria-label="Yelp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.394c.564-.83 1.872-.504 1.98.492l.444 4.088c.06.552-.276 1.06-.828 1.212zm-7.56 5.22l1.86-4.656c.396-.99-.648-1.896-1.584-1.38l-4.26 2.34c-.84.456-.624 1.74.324 1.944l4.08.876c.528.108 1.08-.168 1.284-.672zM10.116 9.42l4.284 2.496c.936.552 1.896-.492 1.44-1.584l-2.352-5.628c-.264-.636-1.2-.768-1.644-.228l-2.112 2.58c-.384.468-.264 1.14.24 1.488zm-1.416 1.62c.54-.78-.18-1.824-1.08-1.572L2.88 10.86c-.66.18-.84.96-.324 1.404l3.84 3.312c.468.396 1.2.156 1.356-.444l.528-2.64c.06-.348 0-.72-.24-1.02zM12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-locations">
+          <h3>Bethel Park</h3>
+          <address>
+            5200 Brightwood Road<br />
+            Bethel Park, PA 15102
+          </address>
+          <p>Mon-Fri: 7am - 6pm</p>
+          <p>Saturday: 7am - 5pm</p>
+          <p>Sunday: Closed</p>
+        </div>
+
+        <div class="footer-locations">
+          <h3>North Strabane</h3>
+          <address>
+            2500 Washington Road<br />
+            North Strabane, PA 15317
+          </address>
+          <p>Mon-Fri: 8am - 6pm</p>
+          <p>Saturday: 9am - 5pm</p>
+          <p>Sunday: Closed</p>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Get in Touch</h3>
+          <p><a href="tel:412-835-6658">412-835-6658</a></p>
+          <p><a href="mailto:info@bethelbakery.com">info@bethelbakery.com</a></p>
+          <div class="footer-links">
+            <a href="/contact">Contact Us</a>
+            <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer">Order Online</a>
+            <a href="https://8lml2wwqls1.typeform.com/to/Jt7P1ZKa" target="_blank" rel="noopener noreferrer">Wedding Consultation</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container--wide footer-bottom-inner">
+          <p>&copy; {new Date().getFullYear()} Bethel Bakery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function initNav() {
+        const toggle = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        const header = document.getElementById('site-header');
+
+        if (!toggle || !mobileNav) return;
+
+        toggle.addEventListener('click', () => {
+          const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+          mobileNav.setAttribute('aria-hidden', String(isOpen));
+          toggle.classList.toggle('open');
+          mobileNav.classList.toggle('open');
+          document.body.style.overflow = isOpen ? '' : 'hidden';
+        });
+
+        // Close on link click
+        mobileNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            toggle.setAttribute('aria-expanded', 'false');
+            mobileNav.setAttribute('aria-hidden', 'true');
+            toggle.classList.remove('open');
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+          });
+        });
+
+        // Header scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+          const current = window.scrollY;
+          if (current > 80) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+          lastScroll = current;
+        }, { passive: true });
+      }
+
+      // Reveal on scroll — apply opacity:0 via JS only (not static CSS) for view-transition safety
+      function initReveal() {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)';
+          observer.observe(el);
+        });
+      }
+
+      document.addEventListener('astro:page-load', () => {
+        initNav();
+        initReveal();
+      });
+    </script>
+
+    <style>
+      /* Skip to content */
+      .skip-to-content {
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--navy);
+        color: var(--cream);
+        padding: 0.75em 1.5em;
+        z-index: 200;
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-decoration: none;
+      }
+
+      .skip-to-content:focus {
+        top: 0.5rem;
+      }
+
+      /* Header */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: color-mix(in oklch, var(--cream) 95%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid transparent;
+      }
+
+      .site-header.scrolled {
+        border-bottom-color: color-mix(in oklch, var(--navy) 10%, transparent);
+        box-shadow: 0 2px 20px oklch(0 0 0 / 0.05);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--space-sm) var(--gutter);
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .logo-link {
+        flex-shrink: 0;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .main-nav {
+        display: none;
+        gap: var(--space-md);
+      }
+
+      .nav-link {
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--text);
+        padding: 0.5em 0;
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--navy);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .header-cta {
+        display: none;
+        font-size: 0.8125rem;
+        padding: 0.7em 1.6em;
+      }
+
+      @media (min-width: 900px) {
+        .main-nav {
+          display: flex;
+        }
+        .header-cta {
+          display: inline-flex;
+        }
+        .menu-toggle {
+          display: none;
+        }
+      }
+
+      /* Mobile menu toggle */
+      .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .menu-bar {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--navy);
+        transform-origin: center;
+      }
+
+      .menu-toggle.open .menu-bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .menu-toggle.open .menu-bar:nth-child(2) {
+        visibility: hidden;
+      }
+      .menu-toggle.open .menu-bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Mobile nav */
+      .mobile-nav {
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background: var(--cream);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-nav.open {
+        display: flex;
+      }
+
+      .mobile-nav nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-lg);
+      }
+
+      .mobile-nav-link {
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 700;
+        color: var(--navy);
+      }
+
+      .mobile-nav-link:hover,
+      .mobile-nav-link.active {
+        color: var(--gold);
+      }
+
+      .mobile-cta {
+        margin-top: var(--space-md);
+      }
+
+      /* Footer */
+      .site-footer {
+        background: var(--navy);
+        color: var(--cream);
+        padding-top: var(--space-2xl);
+      }
+
+      .footer-inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+        padding-bottom: var(--space-xl);
+      }
+
+      @media (min-width: 700px) {
+        .footer-inner {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1000px) {
+        .footer-inner {
+          grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        }
+      }
+
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+
+      .footer-logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .footer-tagline {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 1.125rem;
+        color: var(--gold-light);
+      }
+
+      .footer-social {
+        display: flex;
+        gap: var(--space-md);
+        margin-top: var(--space-sm);
+      }
+
+      .footer-social a {
+        color: var(--cream);
+        opacity: 0.7;
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer-social a:hover {
+        opacity: 1;
+        color: var(--gold);
+      }
+
+      .footer-locations h3,
+      .footer-contact h3 {
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: var(--space-sm);
+      }
+
+      .footer-locations address {
+        font-style: normal;
+        line-height: 1.6;
+        margin-bottom: var(--space-xs);
+        opacity: 0.85;
+      }
+
+      .footer-locations p,
+      .footer-contact p {
+        font-size: 0.9375rem;
+        opacity: 0.85;
+        line-height: 1.5;
+      }
+
+      .footer-contact a:hover {
+        color: var(--gold);
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4em;
+        margin-top: var(--space-sm);
+      }
+
+      .footer-links a {
+        font-size: 0.9375rem;
+        opacity: 0.85;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        color: var(--gold);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid oklch(0.99 0 0 / 0.1);
+        padding: var(--space-md) 0;
+      }
+
+      .footer-bottom-inner {
+        text-align: center;
+        font-size: 0.8125rem;
+        opacity: 0.6;
+      }
+
+      /* Reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .site-header,
+        .menu-bar,
+        .nav-link,
+        .nav-link::after,
+        .mobile-nav,
+        .footer-social a,
+        .footer-links a {
+          transition: none;
+        }
+
+        .menu-toggle.open .menu-bar:nth-child(1),
+        .menu-toggle.open .menu-bar:nth-child(3) {
+          transition: none;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,345 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import cookiePackages from '../assets/images/bethel-bakery-cookie-dessert-packages-2025-image-232x300.jpg';
+import orderingGuide from '../assets/images/bethel-bakery-ordering-guide-2025-200x300.jpg';
+import colorCharts from '../assets/images/buttercream2-300x232.jpg';
+---
+
+<Layout title="How to Order — Bethel Bakery" description="Order online, by phone, or walk in. Cakes, cookies, pastries and more from Bethel Bakery.">
+
+  <section class="order-hero">
+    <div class="container">
+      <p class="section-label">Ordering</p>
+      <h1>Two ways to order. One way to walk in.</h1>
+      <p class="order-hero-sub">All pre-orders require at least 72 hours advance notice.</p>
+    </div>
+  </section>
+
+  <section class="order-methods">
+    <div class="container">
+      <div class="methods-grid reveal">
+        <div class="method-card method-card--featured">
+          <div class="method-number">01</div>
+          <h2>Order Online</h2>
+          <p>Browse our full catalog and place your order through our online store. Payment is required at checkout.</p>
+          <ul class="method-details">
+            <li>Place orders at least 72 hours in advance</li>
+            <li>Pick up at our Bethel Park location</li>
+            <li>Custom requests may need up to 60 days advance notice</li>
+          </ul>
+          <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Shop Our Online Store</a>
+        </div>
+
+        <div class="method-card">
+          <div class="method-number">02</div>
+          <h2>Call Us</h2>
+          <p>Speak with an Order Specialist to place or add to your order.</p>
+          <ul class="method-details">
+            <li>72 hours advance notice</li>
+            <li>Payment due at least 72 hours before pickup</li>
+            <li>Orders accepted at Bethel Park location only</li>
+          </ul>
+          <a href="tel:412-835-6658" class="btn btn--outline">Call 412-835-6658</a>
+        </div>
+
+        <div class="method-card">
+          <div class="method-number">03</div>
+          <h2>Walk In</h2>
+          <p>Our cookie, cake, and breakfast cases are full of sweet treats available on the go.</p>
+          <ul class="method-details">
+            <li>Both locations, no advance order needed</li>
+            <li>Available first come, first served</li>
+            <li>In-store items cannot be held for pickup</li>
+          </ul>
+          <a href="/contact" class="btn btn--outline">Find a Location</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="policies-section">
+    <div class="container">
+      <div class="policies-content reveal">
+        <p class="section-label">Good to Know</p>
+        <h2>Ordering Policies</h2>
+        <div class="policies-grid">
+          <div class="policy">
+            <h3>Lead Times</h3>
+            <dl class="policy-list">
+              <div class="policy-item">
+                <dt>Standard phone orders</dt>
+                <dd>72 hours in advance</dd>
+              </div>
+              <div class="policy-item">
+                <dt>Web orders</dt>
+                <dd>72 hours advance notice</dd>
+              </div>
+              <div class="policy-item">
+                <dt>Custom design</dt>
+                <dd>7 to 14 days</dd>
+              </div>
+              <div class="policy-item">
+                <dt>Custom shape, 3D, or tiered</dt>
+                <dd>14 to 30 days</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="policy">
+            <h3>Payment</h3>
+            <p>Online orders require payment at checkout. Phone orders must be paid at least 72 hours before pickup. Custom orders require a 50% deposit at placement, with full payment 10 days prior.</p>
+            <p class="payment-methods">We accept Cash, Visa, MasterCard, Discover, and American Express.</p>
+          </div>
+          <div class="policy">
+            <h3>Changes &amp; Cancellations</h3>
+            <p>We require 48-hour notice for changes or cancellations on all existing orders. Please call <a href="tel:412-835-6658">412-835-6658</a> for any modifications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="resources-section">
+    <div class="container">
+      <div class="resources-grid reveal">
+        <div class="resource-card">
+          <Image src={cookiePackages} alt="Bethel Bakery Cookie and Dessert Packages" width={232} height={300} layout="constrained" loading="lazy" />
+          <span class="resource-label">Cookie &amp; Dessert Packages</span>
+        </div>
+        <div class="resource-card">
+          <Image src={orderingGuide} alt="Bethel Bakery Ordering Guide" width={200} height={300} layout="constrained" loading="lazy" />
+          <span class="resource-label">Ordering Guide</span>
+        </div>
+        <div class="resource-card">
+          <Image src={colorCharts} alt="Bethel Bakery Buttercream Color Charts" width={300} height={232} layout="constrained" loading="lazy" />
+          <span class="resource-label">Color Charts</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Order Hero */
+  .order-hero {
+    background: var(--navy);
+    padding: var(--space-3xl) 0 var(--space-2xl);
+  }
+
+  .order-hero .section-label {
+    color: var(--gold);
+  }
+
+  .order-hero h1 {
+    color: var(--cream);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    max-width: 700px;
+  }
+
+  .order-hero-sub {
+    color: oklch(0.99 0 0 / 0.6);
+    margin-top: var(--space-sm);
+    font-size: 1.0625rem;
+  }
+
+  /* Methods */
+  .order-methods {
+    padding: var(--space-3xl) 0;
+    background: var(--cream);
+  }
+
+  .methods-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 700px) {
+    .methods-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .method-card {
+    padding: var(--space-xl);
+    background: var(--white);
+    border: 1px solid oklch(0 0 0 / 0.06);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .method-card--featured {
+    background: var(--navy);
+    color: var(--cream);
+    border-color: transparent;
+  }
+
+  .method-card--featured h2 {
+    color: var(--cream);
+  }
+
+  .method-card--featured p {
+    color: oklch(0.99 0 0 / 0.8);
+  }
+
+  .method-card--featured .method-details li {
+    color: oklch(0.99 0 0 / 0.7);
+    border-color: oklch(0.99 0 0 / 0.1);
+  }
+
+  .method-number {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: oklch(0 0 0 / 0.04);
+    margin-bottom: var(--space-sm);
+  }
+
+  .method-card--featured .method-number {
+    color: oklch(0.99 0 0 / 0.06);
+  }
+
+  .method-card h2 {
+    font-size: 1.375rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .method-card > p {
+    color: var(--text-light);
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .method-details {
+    margin-bottom: var(--space-lg);
+    flex: 1;
+  }
+
+  .method-details li {
+    padding: 0.6em 0;
+    border-bottom: 1px solid oklch(0 0 0 / 0.06);
+    font-size: 0.875rem;
+    color: var(--text-light);
+  }
+
+  /* Policies */
+  .policies-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream-dark);
+  }
+
+  .policies-content h2 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .policies-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 700px) {
+    .policies-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .policy {
+    padding: var(--space-lg);
+    background: var(--white);
+    border: 1px solid oklch(0 0 0 / 0.05);
+  }
+
+  .policy h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .policy p {
+    font-size: 0.9375rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .policy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .policy-item {
+    padding: 0.6em 0;
+    border-bottom: 1px solid oklch(0 0 0 / 0.06);
+  }
+
+  .policy-item dt {
+    font-size: 0.8125rem;
+    color: var(--warm-gray);
+    font-weight: 500;
+  }
+
+  .policy-item dd {
+    font-size: 0.9375rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .payment-methods {
+    margin-top: var(--space-sm);
+    font-size: 0.8125rem !important;
+    color: var(--warm-gray) !important;
+  }
+
+  .policy a {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Resources */
+  .resources-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream);
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .resource-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    text-align: center;
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .resource-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .resource-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    box-shadow: 0 8px 30px oklch(0 0 0 / 0.1);
+    border-radius: 2px;
+  }
+
+  .resource-label {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 500;
+  }
+</style>

@@ -1,0 +1,399 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import anniversary from '../assets/images/1961-6th-anniversary-ma-and-dad-e1713796097594.jpg';
+import earlyStorefront from '../assets/images/bb-a-few-months-after-the-fire-e1713791545632.jpg';
+import currentStorefront from '../assets/images/bethel-park-store-front-2017-768x586-1.jpg';
+---
+
+<Layout title="Our Story — Bethel Bakery" description="Three generations of baking life sweeter. From three garages in 1955 to a Pittsburgh institution.">
+
+  <section class="story-hero">
+    <div class="story-hero-inner container--wide">
+      <div class="story-hero-text">
+        <p class="section-label">Est. 1955</p>
+        <h1>Three Generations of Baking Life Sweeter</h1>
+      </div>
+      <div class="story-hero-image">
+        <Image
+          src={anniversary}
+          alt="Morris and Anna Walsh at Bethel Bakery's 6th anniversary, 1961"
+          width={400}
+          height={560}
+          layout="constrained"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline">
+    <div class="container">
+
+      <div class="timeline-block reveal">
+        <div class="timeline-year">1955</div>
+        <div class="timeline-content">
+          <h2>A High School Dream</h2>
+          <p>Orphaned at ten, Morris "Moe" Walsh was raised by his aunt and uncle on a farm in Bethel Park. After his aunt took a part-time job at Dudt's Bakery in Mt. Lebanon, Morris started working there too. With determination and drive, he learned the foundational skills of baking.</p>
+          <p>After serving in the U.S. Navy during the Korean War, Morris realized his dream. With $2,500 and the support of his fiance, Anna Stockhausen, Bethel Bakery began in three humble attached garages on South Park Road with parking for two cars.</p>
+          <p>Morris' days started at 2 am and he worked until 6:30 pm, six days a week. Sundays were for church and his growing family.</p>
+        </div>
+      </div>
+
+      <div class="timeline-block reveal">
+        <div class="timeline-year">1958</div>
+        <div class="timeline-content">
+          <h2>A New Home</h2>
+          <p>Three years in, with a handful of employees, Morris relocated the bakery to 5200 Brightwood Road, its current Bethel Park location. Through hard work and perseverance, Morris and Anna transformed their modest enterprise into a beloved neighborhood bakery.</p>
+          <p>As their family grew to seven children (John, Tom, Karen, Susanne, Marianne, Kathleen, and Christine), each found their place within the bakery and contributed to its growth.</p>
+          <Image
+            src={earlyStorefront}
+            alt="Bethel Bakery storefront, early years"
+            class="timeline-img"
+            width={500}
+            height={500}
+            layout="constrained"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="timeline-block reveal">
+        <div class="timeline-year">1991</div>
+        <div class="timeline-content">
+          <h2>Second Generation</h2>
+          <p>Morris and Anna sold the business to their oldest son John and his wife Chris. John had managed the cake decorating department, and his passion for the industry ignited while demonstrating cake decorating at the National Retail Bakery convention.</p>
+          <p>John and Chris have four children (Patty, Cami, Maria, and Stephen), the next generation of Walshes to grow up in the bakery.</p>
+        </div>
+      </div>
+
+      <div class="timeline-block reveal">
+        <div class="timeline-year">1992</div>
+        <div class="timeline-content">
+          <h2>Rising from the Ashes</h2>
+          <p>A fire in November tested the bakery's resilience. But it continued to thrive with a new storefront and innovations, including picture images on cakes and the launch of its e-commerce website in 2000.</p>
+        </div>
+      </div>
+
+      <div class="timeline-block reveal">
+        <div class="timeline-year">2006</div>
+        <div class="timeline-content">
+          <h2>A Pittsburgh Icon</h2>
+          <p>Bethel Bakery became officially licensed to bake an iced shortbread Terrible Towel cookie, with proceeds benefitting Merakey Allegheny Valley School. That same year, the bakery was featured in the WQED documentary "What Makes Pittsburgh, Pittsburgh" by Rick Sebak.</p>
+        </div>
+      </div>
+
+      <div class="timeline-block reveal">
+        <div class="timeline-year">2016</div>
+        <div class="timeline-content">
+          <h2>A Second Location</h2>
+          <p>Bethel Bakery opened at 2500 Washington Road in North Strabane Township, extending its reach and welcoming new patrons across the South Hills.</p>
+          <Image
+            src={currentStorefront}
+            alt="Bethel Bakery Bethel Park storefront"
+            class="timeline-img"
+            width={768}
+            height={586}
+            layout="constrained"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <div class="timeline-block reveal">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-content">
+          <h2>Third Generation</h2>
+          <p>On July 1, Bethel Bakery became a third-generation business as Stephen and his wife Kate bought the business from his parents. Having grown up in the bakery, Stephen embraces the legacy of his grandparents, ensuring that Bethel Bakery remains a cherished destination in the Pittsburgh area.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-content reveal">
+        <p class="section-label">Our Mission</p>
+        <blockquote class="mission-quote">
+          Bethel Bakery serves our families, employees, community, and God by preparing baked goods of exceptional quality that bring a special joy to life.
+        </blockquote>
+      </div>
+      <div class="values-grid reveal">
+        <div class="value-item">
+          <h3>Accountability</h3>
+          <p>We acknowledge and accept responsibility for actions, products, decisions, time, and policies.</p>
+        </div>
+        <div class="value-item">
+          <h3>Commitment</h3>
+          <p>Opportunities for employees to grow personally, professionally, and spiritually while delivering exceptional quality.</p>
+        </div>
+        <div class="value-item">
+          <h3>Community</h3>
+          <p>We actively support our community, donating product and time to the organizations, neighborhoods, and families we serve.</p>
+        </div>
+        <div class="value-item">
+          <h3>Integrity</h3>
+          <p>Honest, timely communication and service that shows respect and kindness with every customer and teammate.</p>
+        </div>
+        <div class="value-item">
+          <h3>Safety</h3>
+          <p>We ensure the health and well-being of all teammates and customers through Awareness, Communication, and Training.</p>
+        </div>
+        <div class="value-item">
+          <h3>Teamwork</h3>
+          <p>A positive work environment built on cooperative effort, realizing our success depends on performing as one team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <h2>Come see what 70 years of scratch baking tastes like.</h2>
+        <div class="cta-actions">
+          <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer" class="btn btn--gold">Order Online</a>
+          <a href="/contact" class="btn btn--outline cta-outline">Visit Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Story Hero */
+  .story-hero {
+    background: var(--navy);
+    padding: var(--space-3xl) 0 var(--space-2xl);
+    overflow: hidden;
+  }
+
+  .story-hero-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: end;
+  }
+
+  @media (min-width: 800px) {
+    .story-hero-inner {
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+
+  .story-hero-text .section-label {
+    color: var(--gold);
+  }
+
+  .story-hero-text h1 {
+    color: var(--cream);
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+  }
+
+  .story-hero-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .story-hero-image img {
+    max-height: 450px;
+    width: auto;
+    object-fit: cover;
+    border-radius: 2px;
+    filter: sepia(0.2) contrast(1.05) brightness(0.95);
+    box-shadow: 0 20px 60px oklch(0 0 0 / 0.4);
+  }
+
+  /* Timeline */
+  .timeline {
+    padding: var(--space-3xl) 0;
+    background: var(--cream);
+  }
+
+  .timeline-block {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-lg);
+    padding-bottom: var(--space-2xl);
+    position: relative;
+  }
+
+  .timeline-block::before {
+    content: '';
+    position: absolute;
+    left: 60px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: color-mix(in oklch, var(--gold) 30%, transparent);
+  }
+
+  .timeline-block:last-child::before {
+    display: none;
+  }
+
+  .timeline-year {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--gold);
+    width: 120px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: var(--space-lg);
+    position: relative;
+  }
+
+  .timeline-year::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 0.6em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .timeline-content h2 {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .timeline-content p {
+    color: var(--text-light);
+    max-width: 600px;
+  }
+
+  .timeline-img {
+    margin-top: var(--space-md);
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px oklch(0 0 0 / 0.1);
+  }
+
+  @media (max-width: 600px) {
+    .timeline-block {
+      grid-template-columns: 1fr;
+      padding-left: 0;
+    }
+    .timeline-block::before {
+      display: none;
+    }
+    .timeline-year {
+      width: auto;
+      text-align: left;
+      padding-right: 0;
+    }
+    .timeline-year::after {
+      display: none;
+    }
+  }
+
+  /* Mission */
+  .mission-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream-dark);
+  }
+
+  .mission-content {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .mission-quote {
+    font-family: var(--font-display), Georgia, serif;
+    font-size: clamp(1.375rem, 2.5vw, 2rem);
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.4;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    position: relative;
+  }
+
+  .mission-quote::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto var(--space-lg);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 600px) {
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .values-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .value-item {
+    padding: var(--space-lg);
+    background: var(--white);
+    border: 1px solid oklch(0 0 0 / 0.05);
+  }
+
+  .value-item h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+    color: var(--navy);
+  }
+
+  .value-item p {
+    font-size: 0.9375rem;
+    color: var(--text-light);
+    line-height: 1.55;
+  }
+
+  /* CTA Banner */
+  .cta-banner {
+    background: var(--navy);
+    padding: var(--space-2xl) 0;
+  }
+
+  .cta-inner {
+    text-align: center;
+  }
+
+  .cta-inner h2 {
+    color: var(--cream);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-style: italic;
+    margin-bottom: var(--space-lg);
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .cta-outline {
+    color: var(--cream);
+    border-color: oklch(0.99 0 0 / 0.3);
+  }
+
+  .cta-outline:hover {
+    background: var(--cream);
+    color: var(--navy);
+    border-color: var(--cream);
+  }
+</style>

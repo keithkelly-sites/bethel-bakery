@@ -1,0 +1,761 @@
+---
+/*
+  Design Concept: "Since 1955"
+  Inspired by editorial food photography and cinematic hero layouts.
+  Signature moment: "1955" at massive scale behind the hero image.
+*/
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import weddingHero from '../assets/images/wedding-homepg.webp';
+import anniversary from '../assets/images/1961-6th-anniversary-ma-and-dad-e1713796097594.jpg';
+import storefront from '../assets/images/bethel-park-store-front-2017-768x586-1.jpg';
+import venueWeddingCake from '../assets/images/img_0250-1024x683-panorama-db09a1dadcb55540fddae58d40a06f5d-ezn8squ12l9x.jpg';
+import cookieTrays from '../assets/images/cookies.webp';
+import ladyLocks from '../assets/images/bethel-bakery-wedding-pittsburgh-cookie-table-819x1024.webp';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Bethel Bakery",
+  "url": "https://bethel-bakery.keithkelly.dev",
+  "telephone": "412-835-6658",
+  "email": "info@bethelbakery.com",
+  "description": "Family-owned bakery since 1955, serving the South Hills of Pittsburgh with scratch-baked goods of exceptional quality.",
+  "foundingDate": "1955",
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "5200 Brightwood Road",
+      "addressLocality": "Bethel Park",
+      "addressRegion": "PA",
+      "postalCode": "15102",
+      "addressCountry": "US"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "2500 Washington Road",
+      "addressLocality": "North Strabane",
+      "addressRegion": "PA",
+      "postalCode": "15317",
+      "addressCountry": "US"
+    }
+  ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "07:00", "closes": "17:00" }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/BethelBakery/",
+    "https://www.instagram.com/bethelbakery/",
+    "https://www.yelp.com/biz/bethel-bakery-bethel-park"
+  ]
+};
+---
+
+<Layout title="Bethel Bakery — The Cake Place Since 1955">
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-year" aria-hidden="true">1955</div>
+    <div class="hero-image-wrap">
+      <Image
+        src={weddingHero}
+        alt="A couple sharing wedding cake from Bethel Bakery"
+        class="hero-image"
+        width={800}
+        height={800}
+        layout="constrained"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Family-owned since 1955</p>
+      <h1 class="hero-title">The Cake<br />Place</h1>
+      <p class="hero-sub">Three generations of scratch-baked goods in Pittsburgh's South Hills.</p>
+      <div class="hero-actions">
+        <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Order Online</a>
+        <a href="/about" class="btn btn--outline">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- INTRO STATEMENT -->
+  <section class="intro">
+    <div class="container">
+      <div class="intro-grid reveal">
+        <div class="intro-text">
+          <p class="section-label">Our Mission</p>
+          <h2>Baked goods of exceptional quality that bring a special joy to life.</h2>
+          <hr class="divider" />
+          <p>What started in three garages with $2,500 and a dream is now a Pittsburgh institution. Morris "Moe" Walsh, orphaned at ten, learned to bake and never stopped. Today, his grandchildren Stephen and Kate carry that same determination into every loaf, every cake, every cookie tray.</p>
+        </div>
+        <div class="intro-image-stack">
+          <Image
+            src={anniversary}
+            alt="Morris and Anna Walsh at Bethel Bakery's 6th anniversary, 1961"
+            class="intro-img intro-img--back"
+            width={400}
+            height={560}
+            layout="constrained"
+            loading="lazy"
+          />
+          <Image
+            src={storefront}
+            alt="Bethel Bakery storefront in Bethel Park"
+            class="intro-img intro-img--front"
+            width={500}
+            height={380}
+            layout="constrained"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEDDING FEATURE -->
+  <section class="wedding-feature">
+    <div class="wedding-bg" aria-hidden="true"></div>
+    <div class="container--wide">
+      <div class="wedding-grid reveal">
+        <div class="wedding-image-col">
+          <Image
+            src={venueWeddingCake}
+            alt="An elegant wedding cake by Bethel Bakery displayed at a reception venue"
+            class="wedding-img"
+            width={800}
+            height={533}
+            layout="constrained"
+            loading="lazy"
+          />
+        </div>
+        <div class="wedding-text-col">
+          <p class="section-label">Weddings</p>
+          <h2>Your celebration, our craft.</h2>
+          <p>During your at-home consultation, our team walks you through every step. Together, we create a cake that matches your taste, style, and budget. Custom flavors, custom colors, custom everything.</p>
+          <div class="wedding-details">
+            <div class="wedding-detail">
+              <span class="wedding-detail-label">Batters</span>
+              <span>Almond, Chocolate, Lemon, Orange, Red Velvet, Marble, White, Yellow</span>
+            </div>
+            <div class="wedding-detail">
+              <span class="wedding-detail-label">Fillings</span>
+              <span>Bavarian Cream, Cannoli, Chocolate Mousse, Lemon, Raspberry, Strawberry</span>
+            </div>
+          </div>
+          <a href="/weddings" class="btn btn--gold">Plan Your Wedding Cake</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COOKIE TABLE -->
+  <section class="cookie-section">
+    <div class="container">
+      <div class="cookie-grid reveal">
+        <div class="cookie-text">
+          <p class="section-label">A Pittsburgh Tradition</p>
+          <h2>The Cookie Table</h2>
+          <p>No Pittsburgh wedding is complete without one. We bake the traditional favorites your family expects: lady locks, thumbprints, buckeyes, kolachi, pizzelles, and dozens more. Trays start with a selection of our signature cookies, and we'll customize from there.</p>
+          <a href="/weddings" class="btn btn--outline">See Cookie Options</a>
+        </div>
+        <div class="cookie-images">
+          <Image
+            src={cookieTrays}
+            alt="Bethel Bakery cookie trays displayed on gold serving stands"
+            class="cookie-img cookie-img--main"
+            width={500}
+            height={500}
+            layout="constrained"
+            loading="lazy"
+          />
+          <Image
+            src={ladyLocks}
+            alt="Lady locks and chocolate-dipped cookies from Bethel Bakery"
+            class="cookie-img cookie-img--accent"
+            width={400}
+            height={500}
+            layout="constrained"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDERING -->
+  <section class="order-section">
+    <div class="container">
+      <div class="order-content reveal">
+        <p class="section-label">How to Order</p>
+        <h2>Two ways to get your favorites.</h2>
+        <div class="order-grid">
+          <div class="order-card">
+            <div class="order-card-number" aria-hidden="true">01</div>
+            <h3>Order Online</h3>
+            <p>Visit our online store and place your order at least 72 hours in advance. Pay at checkout. Pick up at our Bethel Park location.</p>
+            <a href="https://bethelbakery.bakesmart.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Shop Now</a>
+          </div>
+          <div class="order-card">
+            <div class="order-card-number" aria-hidden="true">02</div>
+            <h3>Call Us</h3>
+            <p>Speak with an Order Specialist at <a href="tel:412-835-6658">412-835-6658</a>. Place or add to your order at least 72 hours in advance. Orders accepted at the Bethel Park location only.</p>
+            <a href="tel:412-835-6658" class="btn btn--outline">Call 412-835-6658</a>
+          </div>
+        </div>
+        <p class="order-note">Walk in anytime for our daily selection of cookies, cakes, and breakfast items. First come, first served.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="locations-section">
+    <div class="container--wide">
+      <div class="locations-header reveal">
+        <p class="section-label">Visit Us</p>
+        <h2>Two locations in the South Hills.</h2>
+      </div>
+      <div class="locations-grid reveal">
+        <div class="location-card">
+          <div class="location-card-label">Bethel Park</div>
+          <address>
+            5200 Brightwood Road<br />
+            Bethel Park, PA 15102
+          </address>
+          <div class="location-hours">
+            <p>Monday - Friday: 7am - 6pm</p>
+            <p>Saturday: 7am - 5pm</p>
+            <p>Sunday: Closed</p>
+          </div>
+          <p class="location-note">Online orders, phone orders, and walk-ins.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=5200+Brightwood+Road+Bethel+Park+PA+15102" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Get Directions</a>
+        </div>
+        <div class="location-card">
+          <div class="location-card-label">North Strabane</div>
+          <address>
+            2500 Washington Road<br />
+            North Strabane, PA 15317
+          </address>
+          <div class="location-hours">
+            <p>Monday - Friday: 8am - 6pm</p>
+            <p>Saturday: 9am - 5pm</p>
+            <p>Sunday: Closed</p>
+          </div>
+          <p class="location-note">Walk-in selection only. No phone or online orders.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=2500+Washington+Road+North+Strabane+PA+15317" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .hero-bg-year {
+    position: absolute;
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(8rem, 25vw, 28rem);
+    color: oklch(0.99 0 0 / 0.04);
+    letter-spacing: -0.03em;
+    user-select: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  .hero-image-wrap {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  .hero-image-wrap :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    filter: brightness(0.85);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    padding: var(--space-2xl) var(--gutter);
+    max-width: 600px;
+    justify-self: start;
+    color: var(--cream);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-title {
+    color: var(--cream);
+    font-size: clamp(3rem, 7vw + 1rem, 7rem);
+    line-height: 0.95;
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    line-height: 1.6;
+    color: oklch(0.99 0 0 / 0.75);
+    max-width: 420px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .hero-actions .btn--outline {
+    color: var(--cream);
+    border-color: oklch(0.99 0 0 / 0.3);
+  }
+
+  .hero-actions .btn--outline:hover {
+    background: var(--cream);
+    color: var(--navy);
+    border-color: var(--cream);
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: var(--gutter);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: oklch(0.99 0 0 / 0.4);
+    font-family: var(--font-mono), monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: oklch(0.99 0 0 / 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gold);
+    animation: scroll-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0% { left: -100%; }
+    50% { left: 0; }
+    100% { left: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-line::after {
+      animation: none;
+      left: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: auto;
+      grid-template-rows: auto auto;
+    }
+    .hero-image-wrap {
+      position: relative;
+      width: 100%;
+      height: 50vh;
+      order: -1;
+    }
+    .hero-content {
+      padding: var(--space-xl) var(--gutter) var(--space-2xl);
+    }
+    .hero-bg-year {
+      font-size: 6rem;
+      top: 25%;
+    }
+    .hero-scroll-hint {
+      display: none;
+    }
+  }
+
+  /* ===== INTRO ===== */
+  .intro {
+    padding: var(--space-3xl) 0;
+    background: var(--cream);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  @media (min-width: 800px) {
+    .intro-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  .intro-text h2 {
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.25;
+  }
+
+  .intro-text p:last-of-type {
+    color: var(--text-light);
+    max-width: 480px;
+  }
+
+  .intro-image-stack {
+    position: relative;
+    height: clamp(350px, 50vw, 550px);
+  }
+
+  .intro-img--back {
+    position: absolute;
+    width: 55%;
+    height: 75%;
+    top: 0;
+    left: 0;
+    border-radius: 2px;
+    box-shadow: 0 10px 40px oklch(0 0 0 / 0.12);
+  }
+
+  .intro-img--back :global(img) {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: sepia(0.15) contrast(1.05);
+  }
+
+  .intro-img--front {
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    bottom: 0;
+    right: 0;
+    border-radius: 2px;
+    box-shadow: 0 10px 40px oklch(0 0 0 / 0.12);
+  }
+
+  .intro-img--front :global(img) {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ===== WEDDING FEATURE ===== */
+  .wedding-feature {
+    position: relative;
+    padding: var(--space-3xl) 0;
+    background: var(--navy);
+    color: var(--cream);
+    overflow: hidden;
+  }
+
+  .wedding-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--navy) 0%, oklch(0.22 0.04 250) 100%);
+    opacity: 0.5;
+  }
+
+  .wedding-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  @media (min-width: 800px) {
+    .wedding-grid {
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  .wedding-img {
+    border-radius: 2px;
+    box-shadow: 0 20px 60px oklch(0 0 0 / 0.3);
+  }
+
+  .wedding-text-col {
+    position: relative;
+  }
+
+  .wedding-text-col .section-label {
+    color: var(--gold);
+  }
+
+  .wedding-text-col h2 {
+    color: var(--cream);
+    font-size: clamp(1.75rem, 3vw, 3rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .wedding-text-col p {
+    color: oklch(0.99 0 0 / 0.8);
+    margin-bottom: var(--space-lg);
+  }
+
+  .wedding-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md);
+    background: oklch(0.99 0 0 / 0.05);
+    border-left: 3px solid var(--gold);
+  }
+
+  .wedding-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+  }
+
+  .wedding-detail-label {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .wedding-detail span:last-child {
+    font-size: 0.9375rem;
+    color: oklch(0.99 0 0 / 0.7);
+  }
+
+  /* ===== COOKIE SECTION ===== */
+  .cookie-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream);
+  }
+
+  .cookie-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  @media (min-width: 800px) {
+    .cookie-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  .cookie-text h2 {
+    font-size: clamp(1.75rem, 3vw, 3rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .cookie-text p {
+    color: var(--text-light);
+    margin-bottom: var(--space-lg);
+    max-width: 440px;
+  }
+
+  .cookie-images {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: var(--space-sm);
+    align-items: end;
+  }
+
+  .cookie-img--main,
+  .cookie-img--accent {
+    border-radius: 2px;
+    box-shadow: 0 8px 30px oklch(0 0 0 / 0.1);
+  }
+
+  /* ===== ORDER SECTION ===== */
+  .order-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream-dark);
+  }
+
+  .order-content {
+    text-align: center;
+  }
+
+  .order-content .section-label {
+    text-align: center;
+  }
+
+  .order-content h2 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .order-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 600px) {
+    .order-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .order-card {
+    background: var(--white);
+    padding: var(--space-xl);
+    text-align: left;
+    position: relative;
+    border: 1px solid oklch(0 0 0 / 0.05);
+  }
+
+  .order-card-number {
+    font-family: var(--font-display), Georgia, serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: oklch(0 0 0 / 0.04);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  .order-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .order-card p {
+    color: var(--text-light);
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .order-card a[href^="tel"] {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .order-note {
+    margin-top: var(--space-lg);
+    font-size: 0.9375rem;
+    color: var(--warm-gray);
+    font-style: italic;
+  }
+
+  /* ===== LOCATIONS ===== */
+  .locations-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream);
+  }
+
+  .locations-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 600px) {
+    .locations-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .location-card {
+    padding: var(--space-xl);
+    background: var(--white);
+    border: 1px solid oklch(0 0 0 / 0.06);
+  }
+
+  .location-card-label {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+
+  .location-card address {
+    font-style: normal;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--navy);
+    font-weight: 500;
+    margin-bottom: var(--space-md);
+  }
+
+  .location-hours p {
+    font-size: 0.9375rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .location-note {
+    font-size: 0.8125rem;
+    color: var(--warm-gray);
+    font-style: italic;
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+</style>

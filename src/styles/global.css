@@ -1,0 +1,226 @@
+/* Bethel Bakery — Global Styles
+   Design concept: "Since 1955"
+   A heritage bakery site that feels like opening a beautifully designed bakery box.
+   Warm golds, creamy whites, deep navy from the logo, with dusty rose accents.
+   Inspired by editorial food photography and cinematic hero layouts.
+*/
+
+@layer reset, base, components, pages;
+
+@layer reset {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+}
+
+@layer base {
+  :root {
+    /* Brand palette — derived from logo navy + photography warm tones */
+    --navy: oklch(0.28 0.06 250);
+    --navy-light: oklch(0.35 0.05 250);
+    --cream: oklch(0.97 0.01 85);
+    --cream-dark: oklch(0.93 0.02 80);
+    --gold: oklch(0.72 0.12 75);
+    --gold-light: oklch(0.82 0.08 80);
+    --rose: oklch(0.82 0.06 15);
+    --rose-deep: oklch(0.65 0.12 15);
+    --white: oklch(0.99 0 0);
+    --warm-gray: oklch(0.55 0.01 60);
+    --text: oklch(0.25 0.02 60);
+    --text-light: oklch(0.45 0.02 60);
+
+    /* Spacing scale */
+    --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+    --space-sm: clamp(0.5rem, 1vw, 1rem);
+    --space-md: clamp(1rem, 2vw, 1.5rem);
+    --space-lg: clamp(1.5rem, 3vw, 3rem);
+    --space-xl: clamp(2rem, 5vw, 5rem);
+    --space-2xl: clamp(3rem, 8vw, 8rem);
+    --space-3xl: clamp(4rem, 10vw, 12rem);
+
+    /* Layout */
+    --max-width: 1200px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+
+    /* Transitions */
+    --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  body {
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Georgia, serif;
+    line-height: 1.15;
+    color: var(--navy);
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw + 1rem, 5rem);
+    font-weight: 900;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3vw + 0.5rem, 3.25rem);
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2vw + 0.25rem, 1.75rem);
+    font-weight: 700;
+  }
+
+  p + p {
+    margin-top: 1em;
+  }
+
+  ::selection {
+    background: var(--rose);
+    color: var(--navy);
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container {
+    width: min(var(--max-width), 100% - var(--gutter) * 2);
+    margin-inline: auto;
+  }
+
+  .container--wide {
+    width: min(1400px, 100% - var(--gutter) * 2);
+    margin-inline: auto;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.85em 2em;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .btn--primary {
+    background: var(--navy);
+    color: var(--cream);
+  }
+
+  .btn--primary:hover {
+    background: var(--navy-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px oklch(0.28 0.06 250 / 0.3);
+  }
+
+  .btn--outline {
+    background: transparent;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+  }
+
+  .btn--outline:hover {
+    background: var(--navy);
+    color: var(--cream);
+  }
+
+  .btn--gold {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .btn--gold:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  /* Section utility */
+  .section-label {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Divider */
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    border: none;
+    margin: var(--space-md) 0;
+  }
+
+  /* Scroll-driven fade-in — applied via JS only, never in static CSS */
+  .reveal.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Reduced motion: show all content immediately */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

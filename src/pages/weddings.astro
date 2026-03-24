@@ -1,0 +1,579 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import venueWeddingCake from '../assets/images/img_0250-1024x683-panorama-db09a1dadcb55540fddae58d40a06f5d-ezn8squ12l9x.jpg';
+import cakeSlice from '../assets/images/img_0853-edit-copy-2048x1365.webp';
+import cookieTrays from '../assets/images/cookies.webp';
+import ladyLocks from '../assets/images/bethel-bakery-wedding-pittsburgh-cookie-table-819x1024.webp';
+import cupcakeTower from '../assets/images/bethel-bakery-wedding-cupcakes--819x1024.webp';
+import pinkGoldCupcakes from '../assets/images/img_1843-732x1024.jpg';
+import weddingCookies from '../assets/images/bethel-bakery-wedding-cookies.jpg';
+---
+
+<Layout title="Wedding Cakes Pittsburgh — Bethel Bakery" description="Custom wedding cakes, cookie tables, and cupcake towers. Schedule a consultation with our wedding team.">
+
+  <section class="wedding-hero">
+    <div class="wedding-hero-bg">
+      <Image
+        src={venueWeddingCake}
+        alt="Elegant wedding cake by Bethel Bakery in a rustic barn venue"
+        width={800}
+        height={533}
+        layout="constrained"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="wedding-hero-overlay"></div>
+    <div class="wedding-hero-content container">
+      <p class="section-label" style="color: var(--gold);">Weddings</p>
+      <h1>Your celebration, our craft.</h1>
+      <p>Custom cakes, cookie tables, and cupcake towers for your special day.</p>
+      <a href="https://8lml2wwqls1.typeform.com/to/Jt7P1ZKa" target="_blank" rel="noopener noreferrer" class="btn btn--gold">Schedule a Consultation</a>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="container">
+      <div class="process-intro reveal">
+        <p class="section-label">The Process</p>
+        <h2>How it works.</h2>
+        <p>During your Zoom consultation, our team walks you through every step. Together, we create a cake that matches your unique taste, style, and budget.</p>
+      </div>
+
+      <div class="process-steps reveal">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <h3>Questionnaire</h3>
+          <p>Fill out our wedding questionnaire with details about your venue, guest count, and design interests. This helps our consultants prepare for your consultation.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <h3>Consultation</h3>
+          <p>During your Zoom appointment, we'll discuss flavors, fillings, design, and budget. Book 6 months before your wedding for the ideal timeframe. Consultations can be booked up to 12 months out.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <h3>Your Perfect Cake</h3>
+          <p>We'll design and bake a cake that's uniquely yours. 50% deposit at placement, remaining balance due 10 days before your wedding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="flavors-section">
+    <div class="container--wide">
+      <div class="flavors-grid reveal">
+        <div class="flavors-image">
+          <Image
+            src={cakeSlice}
+            alt="Cross-section of a Bethel Bakery wedding cake showing three layers of batter and two layers of buttercream filling"
+            width={800}
+            height={533}
+            layout="constrained"
+            loading="lazy"
+          />
+        </div>
+        <div class="flavors-content">
+          <p class="section-label">Custom Inside &amp; Out</p>
+          <h2>Your favorite flavors, your way.</h2>
+
+          <div class="flavor-group">
+            <h3>Batters</h3>
+            <div class="flavor-list">
+              <span>Almond</span>
+              <span>Chocolate</span>
+              <span>Lemon</span>
+              <span>Orange</span>
+              <span>Red Velvet</span>
+              <span>Marble</span>
+              <span>White</span>
+              <span>Yellow</span>
+            </div>
+          </div>
+
+          <div class="flavor-group">
+            <h3>Fillings</h3>
+            <div class="flavor-list">
+              <span>Bavarian Cream</span>
+              <span>Cannoli</span>
+              <span>Chocolate Mousse</span>
+              <span>Lemon</span>
+              <span>Peanut Butter</span>
+              <span>Raspberry</span>
+              <span>Strawberry</span>
+            </div>
+          </div>
+
+          <p class="flavors-note">All cakes are finished with our signature French Buttercream, made from scratch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cookie-table-section">
+    <div class="container">
+      <div class="cookie-table-grid reveal">
+        <div class="cookie-table-text">
+          <p class="section-label">A Pittsburgh Tradition</p>
+          <h2>The Cookie Table</h2>
+          <p>No Pittsburgh wedding is complete without one. We bake the traditional favorites your family expects and customize trays to fit your celebration.</p>
+          <p>Our cookie and dessert packages include a selection of signature cookies. Choose from lady locks, thumbprints, buckeyes, kolachi, pizzelles, and dozens more.</p>
+        </div>
+        <div class="cookie-table-images">
+          <Image
+            src={cookieTrays}
+            alt="Bethel Bakery cookie trays with assorted cookies on gold serving stands"
+            width={500}
+            height={500}
+            layout="constrained"
+            loading="lazy"
+          />
+          <Image
+            src={ladyLocks}
+            alt="Lady locks and chocolate-dipped cookies from Bethel Bakery"
+            width={400}
+            height={500}
+            layout="constrained"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cupcakes-section">
+    <div class="container--wide">
+      <div class="cupcakes-grid reveal">
+        <div class="cupcakes-image">
+          <Image
+            src={cupcakeTower}
+            alt="Tiered cupcake display with decorated cupcakes by Bethel Bakery"
+            width={500}
+            height={625}
+            layout="constrained"
+            loading="lazy"
+          />
+        </div>
+        <div class="cupcakes-image">
+          <Image
+            src={pinkGoldCupcakes}
+            alt="Pink and gold cupcake tower with small cake topper"
+            width={500}
+            height={700}
+            layout="constrained"
+            loading="lazy"
+          />
+        </div>
+        <div class="cupcakes-text">
+          <p class="section-label">Beyond Cake</p>
+          <h2>Wedding Cupcakes</h2>
+          <p>Cupcake towers make a beautiful statement. Choose from included designs like buttercream roses, smooth iced with quins, or ruffled finishes. Custom designs available for sunflowers, succulents, hydrangeas, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="custom-cookies-section">
+    <div class="container">
+      <div class="custom-cookies-grid reveal">
+        <div class="custom-cookies-text">
+          <p class="section-label">Personal Touches</p>
+          <h2>Wedding Cookies</h2>
+          <p>Custom printed cookies add a personal touch to your celebration. Choose from designs like Floral Unity, Classic Laurel, Eternal Laurel, Hand-In-Hand, Entwined Forever, and Modern Romance. Each features your names and wedding date.</p>
+        </div>
+        <div class="custom-cookies-image">
+          <Image
+            src={weddingCookies}
+            alt="Six custom wedding cookie designs by Bethel Bakery"
+            width={600}
+            height={600}
+            layout="constrained"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wedding-info">
+    <div class="container">
+      <div class="info-grid reveal">
+        <div class="info-card">
+          <h3>Wedding Department Hours</h3>
+          <p>Monday - Saturday: 10am - 4pm</p>
+          <p>Sunday: Closed</p>
+          <address>5200 Brightwood Road, Bethel Park, PA 15102</address>
+        </div>
+        <div class="info-card">
+          <h3>Cake Stand Rentals</h3>
+          <p>We offer a selection of cake stands for rent. Gold, silver, and wood options in various sizes from 14" to 22". Cupcake stands also available.</p>
+        </div>
+        <div class="info-card info-card--cta">
+          <h3>Ready to start planning?</h3>
+          <p>Complete our questionnaire and schedule your Zoom consultation.</p>
+          <a href="https://8lml2wwqls1.typeform.com/to/Jt7P1ZKa" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Schedule a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Wedding Hero */
+  .wedding-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .wedding-hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .wedding-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .wedding-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      oklch(0.15 0.03 250 / 0.9) 0%,
+      oklch(0.15 0.03 250 / 0.4) 50%,
+      oklch(0.15 0.03 250 / 0.2) 100%
+    );
+  }
+
+  .wedding-hero-content {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-3xl) var(--gutter);
+    color: var(--cream);
+  }
+
+  .wedding-hero-content h1 {
+    color: var(--cream);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .wedding-hero-content > p {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: oklch(0.99 0 0 / 0.75);
+    max-width: 500px;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Process */
+  .process-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream);
+  }
+
+  .process-intro {
+    max-width: 600px;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .process-intro h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .process-intro p {
+    color: var(--text-light);
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 700px) {
+    .process-steps {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .process-step {
+    padding: var(--space-lg);
+    background: var(--white);
+    border: 1px solid oklch(0 0 0 / 0.05);
+    position: relative;
+  }
+
+  .step-number {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: oklch(0 0 0 / 0.04);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  .process-step h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .process-step p {
+    font-size: 0.9375rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* Flavors */
+  .flavors-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream-dark);
+  }
+
+  .flavors-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  @media (min-width: 800px) {
+    .flavors-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  .flavors-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 10px 40px oklch(0 0 0 / 0.1);
+  }
+
+  .flavors-content h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .flavor-group {
+    margin-bottom: var(--space-lg);
+  }
+
+  .flavor-group h3 {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: var(--space-sm);
+  }
+
+  .flavor-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+  .flavor-list span {
+    padding: 0.35em 0.8em;
+    background: var(--white);
+    border: 1px solid oklch(0 0 0 / 0.08);
+    font-size: 0.875rem;
+    color: var(--text);
+  }
+
+  .flavors-note {
+    font-style: italic;
+    color: var(--warm-gray);
+    font-size: 0.9375rem;
+  }
+
+  /* Cookie Table */
+  .cookie-table-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream);
+  }
+
+  .cookie-table-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  @media (min-width: 800px) {
+    .cookie-table-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  .cookie-table-text h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .cookie-table-text p {
+    color: var(--text-light);
+    max-width: 440px;
+  }
+
+  .cookie-table-images {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: var(--space-sm);
+    align-items: end;
+  }
+
+  .cookie-table-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px oklch(0 0 0 / 0.1);
+  }
+
+  .cookie-table-images img:last-child {
+    max-height: 350px;
+  }
+
+  /* Cupcakes */
+  .cupcakes-section {
+    padding: var(--space-3xl) 0;
+    background: var(--navy);
+    color: var(--cream);
+  }
+
+  .cupcakes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  @media (min-width: 800px) {
+    .cupcakes-grid {
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: var(--space-xl);
+    }
+  }
+
+  .cupcakes-image img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 10px 40px oklch(0 0 0 / 0.3);
+  }
+
+  .cupcakes-text .section-label {
+    color: var(--gold);
+  }
+
+  .cupcakes-text h2 {
+    color: var(--cream);
+    margin-bottom: var(--space-md);
+  }
+
+  .cupcakes-text p {
+    color: oklch(0.99 0 0 / 0.8);
+  }
+
+  /* Custom Cookies */
+  .custom-cookies-section {
+    padding: var(--space-3xl) 0;
+    background: var(--cream);
+  }
+
+  .custom-cookies-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  @media (min-width: 800px) {
+    .custom-cookies-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  .custom-cookies-text h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .custom-cookies-text p {
+    color: var(--text-light);
+  }
+
+  .custom-cookies-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px oklch(0 0 0 / 0.1);
+  }
+
+  /* Wedding Info */
+  .wedding-info {
+    padding: var(--space-3xl) 0;
+    background: var(--cream-dark);
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 700px) {
+    .info-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .info-card {
+    padding: var(--space-xl);
+    background: var(--white);
+    border: 1px solid oklch(0 0 0 / 0.05);
+  }
+
+  .info-card h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .info-card p {
+    font-size: 0.9375rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .info-card address {
+    font-style: normal;
+    font-size: 0.9375rem;
+    color: var(--text-light);
+    margin-top: var(--space-sm);
+  }
+
+  .info-card--cta {
+    background: var(--navy);
+    border-color: transparent;
+  }
+
+  .info-card--cta h3 {
+    color: var(--cream);
+  }
+
+  .info-card--cta p {
+    color: oklch(0.99 0 0 / 0.75);
+    margin-bottom: var(--space-md);
+  }
+</style>
